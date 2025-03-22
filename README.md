@@ -1,1 +1,6 @@
-# apz-pzpi-22-9-miach-kateryna
+# apz-pzpi-22-9-miach-kateryna  
+ПЗПІ-22-9  
+М'яч Катерина  
+Prototype  
+Amazon  
+Програмна система для моніторингу запасів та зберігання меду  
