@@ -1,0 +1,38 @@
+1 class Document {
+2   constructor(title, content) {
+3     this.title = title;
+4     this.content = content;
+5   }
+6 
+7   clone() {
+8     return new Document(this.title, this.content);
+9   }
+10 }
+11 
+12 const original = new Document("Template", "Hello world!");
+13 const copy = original.clone();
+14 
+15 console.log(copy.title);   // Template
+16 console.log(copy.content); // Hello world!
+
+
+1 const person = {
+2   name: "Alice",
+3   address: { city: "Kyiv" }
+4 };
+5 
+6 const copy = person; // поверхнева копія
+7 copy.address.city = "Lviv";
+8 
+9 console.log(person.address.city); // Lviv
+
+
+1 const person = {
+2   name: "Alice",
+3   address: { city: "Kyiv" }
+4 };
+5 
+6 const deepCopy = JSON.parse(JSON.stringify(person));
+7 deepCopy.address.city = "Lviv";
+8 
+9 console.log(person.address.city); // Kyiv
