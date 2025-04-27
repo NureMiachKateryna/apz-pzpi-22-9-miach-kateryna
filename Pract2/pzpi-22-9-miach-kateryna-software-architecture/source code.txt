@@ -1,0 +1,28 @@
+1 const AWS = require('aws-sdk');
+2 const sqs = new AWS.SQS();
+3 const params = {
+4   MessageBody: JSON.stringify({ orderId: '12345', status: 'created' }),
+5   QueueUrl: 'https://sqs.us-east-1.amazonaws.com/123456789012/MyQueue'
+6 };
+7 sqs.sendMessage(params, (err, data) => {
+8   if (err) {
+9     console.error('Error sending message', err);
+10  } else {
+11    console.log('Message sent', data.MessageId);
+12  }
+13 });
+
+
+1 const AWS = require('aws-sdk');
+2 const lambda = new AWS.Lambda();
+3 const params = {
+4   FunctionName: 'processOrder',
+5   Payload: JSON.stringify({ orderId: '12345' })
+6 };
+7 lambda.invoke(params, (err, data) => {
+8   if (err) {
+9     console.error('Error invoking Lambda function', err);
+10  } else {
+11    console.log('Lambda response', JSON.parse(data.Payload));
+12  }
+13 });
